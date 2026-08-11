@@ -1,1 +1,312 @@
+/* ==========================================
+   1. COLOR PALETTE VARIABLES & BASE STYLES
+   ========================================== */
+:root {
+  --color-pink-accent: #D9ADC2;
+  --color-dark-bg: #1C1F26;
+  --color-deep-green: #2C4026;
+  --color-mid-green: #58733D;
+  --color-light-green: #8CA653;
+  --color-white: #FFFFFF;
+  --color-offwhite: #F4F6F2;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  background-color: var(--color-offwhite);
+  color: var(--color-dark-bg);
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
+  text-align: center;
+  color: var(--color-white);
+  margin: 0.5rem 0;
+}
+
+h2 {
+  font-size: clamp(1.4rem, 1rem + 1.5vw, 2rem);
+  color: var(--color-deep-green);
+}
+
+h3 {
+  font-size: clamp(1.1rem, 0.9rem + 1vw, 1.5rem);
+  color: var(--color-deep-green);
+  margin: 0.8rem 0;
+}
+
+/* ==========================================
+   2. INTERACTIVE BUTTONS & LINKS (HOVER POP)
+   ========================================== */
+a {
+  color: var(--color-mid-green);
+  text-decoration: underline;
+  font-weight: bold;
+  display: inline-block;
+  transition: transform 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+a:hover {
+  color: var(--color-deep-green);
+  transform: translateY(-2px) scale(1.03);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--color-pink-accent);
+  outline-offset: 3px;
+}
+
+/* Header & Footer Sticky Layout */
+header, footer {
+  position: sticky;
+  background-color: var(--color-deep-green);
+  color: var(--color-white);
+  padding: 1rem;
+  text-align: center;
+  z-index: 100;
+  border-bottom: 3px solid var(--color-pink-accent);
+}
+
+header {
+  top: 0;
+}
+
+footer {
+  bottom: 0;
+  border-bottom: none;
+  border-top: 3px solid var(--color-pink-accent);
+}
+
+/* Navigation Buttons Hover Pop Effect */
+header nav a, footer a {
+  color: var(--color-white);
+  margin: 0 6px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: clamp(0.85rem, 0.75rem + 0.4vw, 1.05rem);
+  padding: 6px 10px;
+  border-radius: 6px;
+  background-color: transparent;
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+header nav a:hover,
+header nav a:focus-visible {
+  background-color: var(--color-pink-accent);
+  color: var(--color-dark-bg);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+main {
+  flex: 1;
+  padding: clamp(1rem, 3vw, 2.5rem);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   3. MOBILE-FIRST SHOWCASE & TEXT BOXES
+   ========================================== */
+
+/* Mobile Base: 1 Column Stacked */
+.showcase-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+  width: 100%;
+  align-items: center;
+}
+
+.showcase-item img {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+  border: 2px solid var(--color-light-green);
+  border-radius: 8px;
+  display: block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.showcase-item img:hover {
+  transform: scale(1.02);
+  border-color: var(--color-pink-accent);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Text Box Base Styling */
+.text-box {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-mid-green);
+  border-left: 6px solid var(--color-pink-accent);
+  padding: clamp(12px, 2vw, 20px);
+  border-radius: 8px;
+  margin: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.text-box:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  border-color: var(--color-pink-accent);
+}
+
+.text-box p {
+  margin: 0;
+  font-size: clamp(1rem, 0.9rem + 0.4vw, 1.2rem);
+  text-align: left;
+  color: var(--color-dark-bg);
+}
+
+/* ==========================================
+   4. HOMEPAGE 1:1 CARDS
+   ========================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.card {
+  display: block;
+  background: var(--color-white);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  border: 2px solid var(--color-mid-green);
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card .img-container {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: var(--color-offwhite);
+  border-bottom: 3px solid var(--color-pink-accent);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.card h3 {
+  color: var(--color-deep-green);
+  transition: color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.16);
+  border-color: var(--color-pink-accent);
+}
+
+.card:hover img {
+  transform: scale(1.06);
+}
+
+.card:hover h3 {
+  color: var(--color-mid-green);
+}
+
+.card:active {
+  transform: translateY(-2px) scale(0.99);
+}
+
+/* ==========================================
+   5. DESKTOP SIDE-BY-SIDE ALTERNATING LAYOUT
+   ========================================== */
+
+/* Tablet & Desktop Layouts (min-width: 768px) */
+@media (min-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Switch showcase items to side-by-side grid */
+  .showcase-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  /* Even numbered items flip order: Text Box on Left, Image on Right */
+  .showcase-item:nth-of-type(even) img {
+    order: 2;
+  }
+
+  .showcase-item:nth-of-type(even) .text-box {
+    order: 1;
+  }
+}
+
+/* Large Desktop View (min-width: 992px) */
+@media (min-width: 992px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Dark Mode Preference */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--color-dark-bg);
+    color: var(--color-offwhite);
+  }
+
+  .text-box {
+    background-color: #242832;
+    border-color: var(--color-mid-green);
+    border-left-color: var(--color-pink-accent);
+  }
+
+  .text-box p, h2 {
+    color: var(--color-offwhite);
+  }
+
+  .card {
+    background-color: #242832;
+    border-color: var(--color-mid-green);
+  }
+
+  .card h3 {
+    color: var(--color-pink-accent);
+  }
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  a, header nav a, footer a, .text-box, .showcase-item img, .card, .card img {
+    transition: none;
+  }
+
+  a:hover, header nav a:hover, .text-box:hover, .showcase-item img:hover, .card:hover {
+    transform: none;
+  }
+}
 

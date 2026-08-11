@@ -1,14 +1,14 @@
 /* ==========================================
-   1. COLOR PALETTE VARIABLES & BASE STYLES
+   1. PASTEL MATCHA & PINK PALETTE
    ========================================== */
 :root {
-  --color-pink-accent: #D9ADC2;
-  --color-dark-bg: #1C1F26;
-  --color-deep-green: #2C4026;
-  --color-mid-green: #58733D;
-  --color-light-green: #8CA653;
+  --color-pink-header: #E2A3B7;     /* Header & Footer background */
+  --color-pink-accent: #C87A93;     /* Hover states & borders */
+  --color-matcha-light: #E2EBD8;    /* Page background */
+  --color-matcha-card: #EEF3E8;     /* Card & Text box background */
+  --color-matcha-border: #AEC29F;   /* Image & Card borders */
+  --color-slate-text: #384048;      /* Deep gray text for WCAG contrast */
   --color-white: #FFFFFF;
-  --color-offwhite: #F4F6F2;
 }
 
 html, body {
@@ -20,8 +20,8 @@ body {
   display: flex;
   flex-direction: column;
   font-family: Arial, sans-serif;
-  background-color: var(--color-offwhite);
-  color: var(--color-dark-bg);
+  background-color: var(--color-matcha-light);
+  color: var(--color-slate-text);
   font-size: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
   line-height: 1.6;
 }
@@ -29,26 +29,26 @@ body {
 h1 {
   font-size: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
   text-align: center;
-  color: var(--color-white);
+  color: var(--color-slate-text);
   margin: 0.5rem 0;
 }
 
 h2 {
   font-size: clamp(1.4rem, 1rem + 1.5vw, 2rem);
-  color: var(--color-deep-green);
+  color: var(--color-slate-text);
 }
 
 h3 {
   font-size: clamp(1.1rem, 0.9rem + 1vw, 1.5rem);
-  color: var(--color-deep-green);
+  color: var(--color-slate-text);
   margin: 0.8rem 0;
 }
 
 /* ==========================================
-   2. INTERACTIVE BUTTONS & LINKS (HOVER POP)
+   2. INTERACTIVE BUTTONS & LINKS
    ========================================== */
 a {
-  color: var(--color-mid-green);
+  color: var(--color-slate-text);
   text-decoration: underline;
   font-weight: bold;
   display: inline-block;
@@ -56,7 +56,7 @@ a {
 }
 
 a:hover {
-  color: var(--color-deep-green);
+  color: var(--color-pink-accent);
   transform: translateY(-2px) scale(1.03);
 }
 
@@ -65,11 +65,11 @@ a:focus-visible {
   outline-offset: 3px;
 }
 
-/* Header & Footer Sticky Layout */
+/* Header & Footer Sticky Layout (Pastel Pink) */
 header, footer {
   position: sticky;
-  background-color: var(--color-deep-green);
-  color: var(--color-white);
+  background-color: var(--color-pink-header);
+  color: var(--color-slate-text);
   padding: 1rem;
   text-align: center;
   z-index: 100;
@@ -88,7 +88,7 @@ footer {
 
 /* Navigation Buttons Hover Pop Effect */
 header nav a, footer a {
-  color: var(--color-white);
+  color: var(--color-slate-text);
   margin: 0 6px;
   text-decoration: none;
   font-weight: bold;
@@ -101,10 +101,10 @@ header nav a, footer a {
 
 header nav a:hover,
 header nav a:focus-visible {
-  background-color: var(--color-pink-accent);
-  color: var(--color-dark-bg);
+  background-color: var(--color-white);
+  color: var(--color-slate-text);
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 main {
@@ -117,7 +117,7 @@ main {
 }
 
 /* ==========================================
-   3. MOBILE-FIRST SHOWCASE & TEXT BOXES
+   3. SHOWCASE ITEMS & ACCURATE IMAGE BORDERS
    ========================================== */
 
 /* Mobile Base: 1 Column Stacked */
@@ -130,41 +130,42 @@ main {
   align-items: center;
 }
 
+/* Border directly applied to image so it follows photo dimensions exactly */
 .showcase-item img {
   width: 100%;
+  max-width: 100%;
   height: auto;
-  max-height: 60vh;
   object-fit: contain;
-  border: 2px solid var(--color-light-green);
+  border: 3px solid var(--color-matcha-border);
   border-radius: 8px;
   display: block;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .showcase-item img:hover {
   transform: scale(1.02);
   border-color: var(--color-pink-accent);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Text Box Base Styling */
 .text-box {
   width: 100%;
   box-sizing: border-box;
-  background-color: var(--color-white);
-  border: 2px solid var(--color-mid-green);
-  border-left: 6px solid var(--color-pink-accent);
+  background-color: var(--color-matcha-card);
+  border: 2px solid var(--color-matcha-border);
+  border-left: 6px solid var(--color-pink-header);
   padding: clamp(12px, 2vw, 20px);
   border-radius: 8px;
   margin: 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .text-box:hover {
   transform: translateY(-3px) scale(1.01);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
   border-color: var(--color-pink-accent);
 }
 
@@ -172,7 +173,7 @@ main {
   margin: 0;
   font-size: clamp(1rem, 0.9rem + 0.4vw, 1.2rem);
   text-align: left;
-  color: var(--color-dark-bg);
+  color: var(--color-slate-text);
 }
 
 /* ==========================================
@@ -187,13 +188,13 @@ main {
 
 .card {
   display: block;
-  background: var(--color-white);
+  background: var(--color-matcha-card);
   border-radius: 12px;
   overflow: hidden;
   text-decoration: none;
-  border: 2px solid var(--color-mid-green);
+  border: 2px solid var(--color-matcha-border);
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
@@ -201,8 +202,8 @@ main {
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
-  background-color: var(--color-offwhite);
-  border-bottom: 3px solid var(--color-pink-accent);
+  background-color: var(--color-matcha-light);
+  border-bottom: 3px solid var(--color-pink-header);
 }
 
 .card img {
@@ -215,13 +216,13 @@ main {
 }
 
 .card h3 {
-  color: var(--color-deep-green);
+  color: var(--color-slate-text);
   transition: color 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.12);
   border-color: var(--color-pink-accent);
 }
 
@@ -230,7 +231,7 @@ main {
 }
 
 .card:hover h3 {
-  color: var(--color-mid-green);
+  color: var(--color-pink-accent);
 }
 
 .card:active {
@@ -241,13 +242,11 @@ main {
    5. DESKTOP SIDE-BY-SIDE ALTERNATING LAYOUT
    ========================================== */
 
-/* Tablet & Desktop Layouts (min-width: 768px) */
 @media (min-width: 768px) {
   .card-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* Switch showcase items to side-by-side grid */
   .showcase-item {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -255,7 +254,6 @@ main {
     align-items: center;
   }
 
-  /* Even numbered items flip order: Text Box on Left, Image on Right */
   .showcase-item:nth-of-type(even) img {
     order: 2;
   }
@@ -265,37 +263,9 @@ main {
   }
 }
 
-/* Large Desktop View (min-width: 992px) */
 @media (min-width: 992px) {
   .card-grid {
     grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Dark Mode Preference */
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: var(--color-dark-bg);
-    color: var(--color-offwhite);
-  }
-
-  .text-box {
-    background-color: #242832;
-    border-color: var(--color-mid-green);
-    border-left-color: var(--color-pink-accent);
-  }
-
-  .text-box p, h2 {
-    color: var(--color-offwhite);
-  }
-
-  .card {
-    background-color: #242832;
-    border-color: var(--color-mid-green);
-  }
-
-  .card h3 {
-    color: var(--color-pink-accent);
   }
 }
 
@@ -309,4 +279,3 @@ main {
     transform: none;
   }
 }
-
